@@ -18,7 +18,7 @@ public class TaskService {
         TaskEntity task = new TaskEntity();
         task.setId(taskId);
         task.setTitle(title);
-        task.setDeadline(new Date(deadline)); //TODO validate date format YYYY-DD-MM
+        //task.setDeadline(new Date(deadline)); //TODO validate date format YYYY-DD-MM
         task.setDescription(description);
         task.setCompleted(false);
         tasks.add(task);
