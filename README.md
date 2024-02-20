@@ -16,16 +16,16 @@ task manager + notes support
    - delete notes for a particular task
 
 ----
-## API Endpoints (REST URLs)
+### API Endpoints (REST URLs)
 1. GET      /tasks                   get all tasks
 2. GET      /tasks/{id}              get a task by id  
 3. DELETE   /tasks/{id}              delete task by id
--PATCH    /task/{id}               update details of a task
--POST     /tasks                   create a new task 
+4. PATCH    /task/{id}               update details of a task
+5. POST     /tasks                   create a new task 
 
--GET      /tasks/{id}/notes     	show all notes of a task
--POST     /tasks/{id}/notes 		add notes to a task      
--DELETE   /tasks/{id}/notes/{nid} delete a note from a task
+6. GET      /tasks/{id}/notes     	show all notes of a task
+7. POST     /tasks/{id}/notes 		add notes to a task      
+8. DELETE   /tasks/{id}/notes/{nid} delete a note from a task
 
 ---- "idempotenet"
 
