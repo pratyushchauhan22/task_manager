@@ -17,9 +17,9 @@ task manager + notes support
 
 ----
 ## API Endpoints (REST URLs)
--GET      /tasks                   get all tasks
--GET      /tasks/{id}              get a task by id  
--DELETE   /tasks/{id}              delete task by id
+1. GET      /tasks                   get all tasks
+2. GET      /tasks/{id}              get a task by id  
+3. DELETE   /tasks/{id}              delete task by id
 -PATCH    /task/{id}               update details of a task
 -POST     /tasks                   create a new task 
 
