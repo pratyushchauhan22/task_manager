@@ -27,7 +27,7 @@ task manager + notes support
 7. POST     /tasks/{id}/notes 		add notes to a task      
 8. DELETE   /tasks/{id}/notes/{nid} delete a note from a task
 
----- "idempotenet"
+---- "idempotent"
 
 DB entities ?
 
