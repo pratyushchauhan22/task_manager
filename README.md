@@ -30,4 +30,19 @@ API Endpoints (REST URLs)
 
 ---- "idempotenet"
 
+DB entities ?
+
+1. tasks
+    - id 			int, primarykey
+    - name			string
+    - due_date		date
+    - status		boolean
+
+2. notes
+    - id			int, primarykey
+    - body			string
+    - task_id		foreignkey(tasks.id)
+
+------ 
+
 
