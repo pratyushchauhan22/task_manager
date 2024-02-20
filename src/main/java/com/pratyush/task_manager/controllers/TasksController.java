@@ -2,10 +2,13 @@ package com.pratyush.task_manager.controllers;
 
 import com.pratyush.task_manager.dto.CreateTaskDTO;
 import com.pratyush.task_manager.dto.ErrorResponseDTO;
+import com.pratyush.task_manager.dto.TaskResponseDTO;
 import com.pratyush.task_manager.dto.UpdateTaskDTO;
 import com.pratyush.task_manager.entities.TaskEntity;
+import com.pratyush.task_manager.services.NotesService;
 import com.pratyush.task_manager.services.TaskService;
 import org.springframework.http.ResponseEntity;
+import org.modelmapper.ModelMapper;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
@@ -15,10 +18,14 @@ import java.util.List;
 @RequestMapping("/tasks")
 public class TasksController {
     private final TaskService taskService;
+    private  final NotesService notesService;
+    private ModelMapper modelMapper = new ModelMapper();
 
-    public TasksController(TaskService taskService) {
+    public TasksController(TaskService taskService, NotesService notesService) {
         this.taskService = taskService;
+        this.notesService = notesService;
     }
+
 
     @GetMapping
     public ResponseEntity<List<TaskEntity>> getTasks() {
@@ -27,13 +34,20 @@ public class TasksController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<TaskEntity> getTaskById(@PathVariable ("id") Integer id) {
+    public ResponseEntity<TaskResponseDTO> getTaskById(@PathVariable ("id") Integer id) {
         var task = taskService.getTaskById(id);
+        var notes = notesService.getNotesForTask(id);
         if (task == null) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(task);
+       // task.setNotes(notes);
+        var taskResponse = modelMapper.map(task, TaskResponseDTO.class);
+        taskResponse.setNotes(notes);
+
+
+        return ResponseEntity.ok(taskResponse);
     }
+
 
     @PostMapping("")
     public ResponseEntity<TaskEntity> addTask(@RequestBody CreateTaskDTO body) throws ParseException {
