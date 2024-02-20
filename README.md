@@ -16,8 +16,7 @@ task manager + notes support
    - delete notes for a particular task
 
 ----
-API Endpoints (REST URLs)
-
+#API Endpoints (REST URLs)
 -GET      /tasks                   get all tasks
 -GET      /tasks/{id}              get a task by id  
 -DELETE   /tasks/{id}              delete task by id
